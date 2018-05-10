@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    name: message
+    url: jdbc:mysql://localhost:3306/message?useUnicode=true&&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: root
+
+  mail:
+    host: smtp.qq.com
+    username: 850062135@qq.com
+    password: edwclzhziurtbgag
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 25000
+          ssl: #qq邮箱需要的安全验证配置，163邮箱不需要，没那么严格
+            enable: true
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+#mybatis配置
+mybatis:
+  #无配置文件注解版
+  type-aliases-package: com.example.email.demo.entity                  //实体类所在目录（bean）
+  #配置文件版
+  #mapper-locations: classpath:mybatis/mapper/*.xml
+  #config-location: classpath:mybatis/mybatis-config.xml
+
+#分页配置
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  helper-dialect: mysql
+  params: count=countSql
+
+
+
+
+
